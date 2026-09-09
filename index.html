@@ -3,381 +3,386 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Agulto — CRO Designer &amp; Direct-Response Builder</title>
+<title>Daniel Agulto — Full-Stack Web Developer</title>
+<meta name="description" content="Full-stack web developer building products end to end — database to interface. Founder of letmeKnow.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --counter: #23201a;
-    --paper: #f6f1e4;
-    --paper-shade: #e9e2cd;
-    --ink: #211d16;
-    --ink-soft: #86806c;
-    --stamp: #a8362c;
-    --pos-green: #3c7a58;
-    --rule: #d8d0b8;
+    --paper: #F5F3ED;
+    --paper-line: #D8D3C6;
+    --ink: #1B1F23;
+    --ink-soft: #4B5157;
+    --blue: #2455A4;
+    --blue-soft: #E4EAF4;
   }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
   body{
     margin:0;
-    background:var(--counter);
-    background-image:
-      radial-gradient(ellipse at top, #322d24 0%, #23201a 60%);
-    font-family:'JetBrains Mono', monospace;
-    color:var(--ink);
-    display:flex;
-    justify-content:center;
-    padding:48px 16px 90px;
-    min-height:100vh;
+    background:
+      linear-gradient(var(--paper-line) 1px, transparent 1px) 0 0/100% 32px,
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px) 0 0/32px 100%,
+      var(--paper);
+    background-attachment: local;
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+  a{ color: var(--blue); }
+  .wrap{
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
 
-  .slot{
-    position:fixed;
-    top:0; left:0; right:0;
-    height:14px;
-    background:#141210;
-    box-shadow:0 3px 10px rgba(0,0,0,.5);
-    z-index:20;
+  /* ---- Titleblock header ---- */
+  header{
+    border-bottom: 1.5px solid var(--ink);
+    background: var(--paper);
+    position: sticky; top:0; z-index: 5;
   }
-  .slot::after{
-    content:"";
-    position:absolute; left:50%; top:4px;
-    transform:translateX(-50%);
-    width:120px; height:6px;
-    background:#000;
-    border-radius:3px;
+  .titleblock{
+    display:flex; justify-content: space-between; align-items: center;
+    padding: 14px 0;
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
   }
+  .titleblock strong{ color: var(--ink); font-weight:600; }
+  .titleblock nav a{ color: var(--ink-soft); text-decoration:none; margin-left: 18px; }
+  .titleblock nav a:hover{ color: var(--blue); }
 
-  .receipt{
-    width:100%;
-    max-width:440px;
-    background:var(--paper);
-    box-shadow:0 30px 60px rgba(0,0,0,.45), 0 4px 0 rgba(0,0,0,.05) inset;
-    position:relative;
-    opacity:0;
-    transform:translateY(-160px);
-    animation:print-out 1.1s cubic-bezier(.2,.9,.25,1) .3s forwards;
+  /* ---- Hero ---- */
+  .hero{ padding: 72px 0 48px; }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 50px);
+    line-height: 1.15;
+    margin: 0 0 20px;
+    max-width: 15ch;
   }
-  @keyframes print-out{
-    0%{ opacity:0; transform:translateY(-220px); }
-    60%{ opacity:1; }
-    100%{ opacity:1; transform:translateY(0); }
+  .hero p.lede{
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 54ch;
+    margin: 0 0 28px;
   }
-
-  .zig-top, .zig-bot{
-    height:13px;
-    background-color:var(--paper);
-    background-image:
-      linear-gradient(45deg, var(--counter) 25%, transparent 25.5%),
-      linear-gradient(-45deg, var(--counter) 25%, transparent 25.5%);
-    background-size:18px 18px;
-  }
-  .zig-top{ background-position:top; }
-  .zig-bot{ background-position:bottom; }
-
-  .inner{ padding:34px 30px 26px; }
-
-  .line{
-    opacity:0;
-    transform:translateY(14px);
-    transition:opacity .55s ease, transform .55s ease;
-  }
-  .line.show{ opacity:1; transform:translateY(0); }
-
-  .store-name{
-    text-align:center;
-    font-size:23px;
-    font-weight:800;
-    letter-spacing:1px;
-    margin:0 0 4px;
-  }
-  .store-tag{
-    text-align:center;
-    font-size:12px;
-    font-weight:500;
-    letter-spacing:2.5px;
-    color:var(--ink-soft);
-    margin:0 0 18px;
-  }
-  .center-block{ text-align:center; font-size:11.5px; line-height:1.7; color:var(--ink-soft); }
-  .center-block a{ color:var(--pos-green); text-decoration:none; border-bottom:1px dashed var(--pos-green); }
-
-  .rule{
-    border:none;
-    border-top:1.5px dashed var(--rule);
-    margin:18px 0;
-  }
-  .rule.solid{ border-top:2px solid var(--ink); opacity:.85; }
-
-  .meta-row{ display:flex; justify-content:space-between; font-size:11px; color:var(--ink-soft); margin-bottom:2px; }
-
-  h2.section{
-    font-size:12.5px;
-    letter-spacing:2px;
-    font-weight:800;
-    margin:0 0 14px;
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-  h2.section::before{ content:"▸"; color:var(--stamp); }
-
-  .item-row{
-    display:flex; justify-content:space-between; gap:10px;
-    font-size:12.5px; padding:5px 0;
-  }
-  .item-row .name{ font-weight:600; }
-  .item-row .val{ color:var(--ink-soft); text-align:right; white-space:nowrap; }
-
-  .qty{ color:var(--ink-soft); font-size:11px; }
-
-  .case-card{
-    background:var(--paper-shade);
-    border:1.5px dashed var(--ink-soft);
-    padding:16px 16px 14px;
-    margin:14px 0;
-    position:relative;
-  }
-  .case-card h3{
-    margin:0 0 6px;
-    font-size:11.5px;
-    letter-spacing:1.5px;
-    color:var(--stamp);
-  }
-  .case-card p{ margin:0; font-size:12px; line-height:1.6; color:var(--ink); }
-
-  .flow{
-    display:flex; flex-wrap:wrap; gap:6px 4px;
-    font-size:10.5px; font-weight:700; letter-spacing:.4px;
-    margin-top:6px;
-  }
-  .flow span{ background:var(--paper); border:1px solid var(--ink); padding:4px 7px; }
-  .flow .arrow{ border:none; padding:4px 0; color:var(--ink-soft); font-weight:400; }
-
-  .stamp{
-    font-family:'Caveat', cursive;
-    color:var(--stamp);
-    border:3px solid var(--stamp);
+  .hero .cta-row{ display:flex; gap:14px; flex-wrap: wrap; align-items:center; }
+  .btn{
     display:inline-block;
-    padding:2px 14px;
-    font-size:22px;
-    font-weight:700;
-    transform:rotate(-7deg);
-    border-radius:6px;
-    margin-top:10px;
-    opacity:.9;
-  }
-
-  .proj-link{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    margin-top:12px;
-    font-size:11.5px;
-    font-weight:700;
-    color:var(--pos-green);
+    padding: 11px 20px;
+    background: var(--ink);
+    color: var(--paper);
     text-decoration:none;
-    border:1.5px solid var(--pos-green);
-    padding:7px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1.5px solid var(--ink);
   }
-  .proj-link:hover{ background:var(--pos-green); color:var(--paper); }
-  .proj-link::before{ content:"↗"; }
+  .btn:hover{ background: var(--blue); border-color: var(--blue); }
+  .btn.ghost{ background: transparent; color: var(--ink); }
+  .btn.ghost:hover{ background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
 
-  .job{ margin-bottom:14px; }
-  .job .role{ font-weight:800; font-size:12.5px; }
-  .job .org{ font-size:11.5px; color:var(--ink-soft); }
-  .job ul{ margin:6px 0 0; padding-left:16px; }
-  .job li{ font-size:11.5px; line-height:1.6; margin-bottom:3px; }
+  /* schematic diagram */
+  .schematic{ margin: 44px 0 8px; }
+  .schematic svg{ width: 100%; height: auto; display:block; }
 
-  .barcode{ display:flex; gap:2px; align-items:flex-end; height:46px; justify-content:center; margin:16px 0 6px; }
-  .barcode div{ background:var(--ink); width:2px; }
-
-  .total-row{ display:flex; justify-content:space-between; font-size:14px; font-weight:800; padding:10px 0; }
-  .thankyou{ text-align:center; font-size:12px; letter-spacing:2px; font-weight:700; margin-top:6px; }
-  .footer-note{ text-align:center; font-size:10px; color:var(--ink-soft); margin-top:6px; line-height:1.7; }
-
-  .cta-row{ display:flex; gap:8px; margin-top:16px; flex-wrap:wrap; justify-content:center; }
-  .cta-row a{ flex:1; min-width:120px; text-align:center; justify-content:center; }
-
-  @media (max-width:480px){
-    .inner{ padding:26px 18px 20px; }
-    .store-name{ font-size:19px; }
+  /* ---- fact strip ---- */
+  .factstrip{
+    border-top: 1.5px solid var(--ink);
+    border-bottom: 1px solid var(--paper-line);
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
   }
+  .fact{
+    padding: 16px 18px;
+    border-right: 1px solid var(--paper-line);
+  }
+  .fact:last-child{ border-right:none; }
+  .fact .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    display:block;
+    margin-bottom: 6px;
+  }
+  .fact .value{ font-size: 15px; font-weight: 500; }
+
+  @media (max-width: 620px){
+    .factstrip{ grid-template-columns: repeat(2, 1fr); }
+    .fact:nth-child(2n){ border-right:none; }
+    .fact{ border-bottom: 1px solid var(--paper-line); }
+  }
+
+  /* ---- section framing ---- */
+  section{ padding: 56px 0; border-bottom: 1px solid var(--paper-line); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{
+    display:flex; align-items:baseline; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .section-head h2{
+    font-family:'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin: 0;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+
+  /* ---- skills ---- */
+  .skillgrid{ display:grid; grid-template-columns: 1fr 1fr; gap: 22px 32px; }
+  @media (max-width: 560px){ .skillgrid{ grid-template-columns: 1fr; } }
+  .skillgroup .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+  .taglist{ display:flex; flex-wrap: wrap; gap: 8px; }
+  .tag-pill{
+    font-size: 13px;
+    padding: 5px 10px;
+    border: 1px solid var(--paper-line);
+    background: rgba(255,255,255,0.5);
+  }
+
+  /* ---- projects ---- */
+  .project{ margin-bottom: 40px; }
+  .project:last-child{ margin-bottom:0; }
+  .project-top{
+    display:flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; gap: 8px 16px;
+    margin-bottom: 8px;
+  }
+  .project h3{ font-size: 18px; margin:0; font-weight:600; }
+  .project .role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--blue);
+  }
+  .project p{ margin: 0 0 12px; color: var(--ink-soft); line-height: 1.6; font-size: 15px; max-width: 62ch; }
+  .project .stack{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom: 12px; }
+  .project .stack span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    border: 1px solid var(--paper-line);
+    padding: 3px 8px;
+  }
+  .project a.live{
+    font-size: 13.5px; font-weight:500; text-decoration:none;
+    border-bottom: 1px solid var(--blue);
+  }
+
+  /* ---- experience ---- */
+  .job{ margin-bottom: 26px; }
+  .job:last-child{ margin-bottom:0; }
+  .job-top{ display:flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; }
+  .job h3{ font-size:16px; margin:0; font-weight:600; }
+  .job .when{ font-family:'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); }
+  .job ul{ margin: 10px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; }
+  .job ul li{ margin-bottom: 4px; }
+
+  /* ---- footer ---- */
+  footer{ padding: 48px 0 60px; }
+  footer .row{ display:flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
+  footer h2{ font-family:'Fraunces', serif; font-weight:500; font-size: 24px; margin: 0 0 10px; }
+  footer .meta{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color: var(--ink-soft); line-height:1.8; }
+  footer .meta a{ color: var(--ink-soft); }
 </style>
 </head>
 <body>
 
-<div class="slot"></div>
+<header>
+  <div class="wrap titleblock">
+    <div><strong>D. AGULTO JR.</strong> — full-stack developer</div>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-<div class="receipt">
-  <div class="zig-top"></div>
-  <div class="inner">
-
-    <div class="line show">
-      <p class="store-name">DANIEL L. AGULTO JR.</p>
-      <p class="store-tag">CRO DESIGNER · DIRECT-RESPONSE BUILDER</p>
-      <p class="center-block">
-        Madrid, Spain · +34 672 189 733<br>
-        <a href="mailto:danielagultolim@gmail.com">danielagultolim@gmail.com</a>
-      </p>
+<div class="wrap">
+  <section class="hero" id="top">
+    <h1>I build products from the database up.</h1>
+    <p class="lede">Full-stack web developer working across React, Node.js, PHP, and relational databases — with 8+ years leading teams before moving into software. Founder of letmeKnow. Based in Madrid, available immediately.</p>
+    <div class="cta-row">
+      <a class="btn" href="mailto:danielagultolim@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://letmeknow.xo.je" target="_blank" rel="noopener">letmeKnow →</a>
     </div>
 
-    <hr class="rule">
+    <div class="schematic" aria-hidden="true">
+      <svg viewBox="0 0 660 110" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#2455A4"/>
+          </marker>
+        </defs>
+        <line x1="120" y1="55" x2="270" y2="55" stroke="#2455A4" stroke-width="1.5" marker-end="url(#arrow)"/>
+        <line x1="390" y1="55" x2="540" y2="55" stroke="#2455A4" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-    <div class="line">
-      <div class="meta-row"><span>TXN #000247</span><span id="today"></span></div>
-      <div class="meta-row"><span>CASHIER</span><span>DANIEL A.</span></div>
-      <div class="meta-row"><span>STATUS</span><span style="color:var(--pos-green); font-weight:700;">OPEN TO WORK</span></div>
+        <rect x="10" y="25" width="110" height="60" fill="none" stroke="#1B1F23" stroke-width="1.5"/>
+        <text x="65" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#1B1F23">database</text>
+        <text x="65" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4B5157">PostgreSQL / SQL</text>
+
+        <rect x="280" y="25" width="110" height="60" fill="none" stroke="#1B1F23" stroke-width="1.5"/>
+        <text x="335" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#1B1F23">backend</text>
+        <text x="335" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4B5157">Node.js / PHP</text>
+
+        <rect x="550" y="25" width="100" height="60" fill="none" stroke="#1B1F23" stroke-width="1.5"/>
+        <text x="600" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#1B1F23">frontend</text>
+        <text x="600" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4B5157">React / UI</text>
+      </svg>
     </div>
+  </section>
 
-    <hr class="rule solid">
+  <div class="factstrip">
+    <div class="fact"><span class="label">Location</span><span class="value">Madrid, Spain</span></div>
+    <div class="fact"><span class="label">Status</span><span class="value">Open to work</span></div>
+    <div class="fact"><span class="label">Experience</span><span class="value">8+ years</span></div>
+    <div class="fact"><span class="label">Education</span><span class="value">DAW, in progress</span></div>
+  </div>
 
-    <!-- SKILLS -->
-    <div class="line">
-      <h2 class="section">SKILLS RUNG UP</h2>
-      <div class="item-row"><span class="name">CRO &amp; Testing Mindset</span><span class="val">x1</span></div>
-      <div class="item-row"><span class="name">Sales &amp; Results Analysis</span><span class="val">x1</span></div>
-      <div class="item-row"><span class="name">Figma <span class="qty">(foundational)</span></span><span class="val">x1</span></div>
-      <div class="item-row"><span class="name">Shopify &amp; Page Builders <span class="qty">(foundational)</span></span><span class="val">x1</span></div>
-      <div class="item-row"><span class="name">HTML / CSS / JavaScript</span><span class="val">x1</span></div>
-      <div class="item-row"><span class="name">PHP &amp; Databases</span><span class="val">x1</span></div>
-      <div class="item-row"><span class="name">AI-Assisted Workflow</span><span class="val">x1</span></div>
-      <div class="item-row"><span class="name">Marketing Campaigns &amp; Promotions</span><span class="val">x1</span></div>
-      <div class="item-row"><span class="name">Team Leadership</span><span class="val">x1</span></div>
-      <hr class="rule">
-      <div class="item-row"><span class="name" style="font-weight:800;">SUBTOTAL</span><span class="val" style="font-weight:800; color:var(--ink);">8 YRS EXP.</span></div>
-    </div>
-
-    <hr class="rule solid">
-
-    <!-- CASE STUDY -->
-    <div class="line">
-      <h2 class="section">FEATURED CASE STUDY</h2>
-      <div class="item-row" style="margin-bottom:2px;">
-        <span class="name" style="font-size:14px;">Dan Store — Sales &amp; Ops App</span>
-      </div>
-      <p style="font-size:11px; color:var(--ink-soft); margin:0 0 10px;">Live web application, built and iterated solo against real transactions.</p>
-
-      <div class="case-card">
-        <h3>THE HYPOTHESIS</h3>
-        <p>Off-the-shelf POS software meant recurring fees for features a single small store didn't need — and staff friction at the exact moment a sale happens. A lighter, purpose-built tool would convert more counter interactions into closed sales.</p>
-      </div>
-      <div class="case-card">
-        <h3>THE USERS</h3>
-        <p>Store staff with no technical background, ringing up a sale or checking a customer's balance in seconds — often with the customer standing right there. Every extra tap is a drop-off risk, same as a checkout page.</p>
-      </div>
-      <div class="case-card">
-        <h3>THE FLOW</h3>
-        <p>Each tab mirrors one step of an actual shift, in the order staff move through it — the retail equivalent of ad-to-page continuity:</p>
-        <div class="flow">
-          <span>POS</span><span class="arrow">→</span>
-          <span>INVENTORY</span><span class="arrow">→</span>
-          <span>SALES</span><span class="arrow">→</span>
-          <span>UNPAID</span><span class="arrow">→</span>
-          <span>BRANCH</span>
+  <section id="skills">
+    <div class="section-head"><h2>Skills</h2><span class="tag mono">stack</span></div>
+    <div class="skillgrid">
+      <div class="skillgroup">
+        <div class="label">Frontend</div>
+        <div class="taglist">
+          <span class="tag-pill">JavaScript (ES6+)</span>
+          <span class="tag-pill">React</span>
+          <span class="tag-pill">HTML5</span>
+          <span class="tag-pill">CSS3</span>
+          <span class="tag-pill">Responsive Design</span>
+          <span class="tag-pill">Figma</span>
         </div>
       </div>
-      <div class="case-card">
-        <h3>TEST &amp; ITERATE</h3>
-        <p>Partial-payment and balance-tracking flows were shipped, watched against real usage, then reworked — a build → observe → refine loop, run on live transactions instead of a design board.</p>
+      <div class="skillgroup">
+        <div class="label">Backend</div>
+        <div class="taglist">
+          <span class="tag-pill">Node.js</span>
+          <span class="tag-pill">PHP</span>
+          <span class="tag-pill">REST APIs</span>
+          <span class="tag-pill">CRUD design</span>
+        </div>
       </div>
-
-      <div class="stamp">APPROVED</div><br>
-      <a class="proj-link" href="https://danstore.page.gd/" target="_blank" rel="noopener">VIEW LIVE SITE</a>
-    </div>
-
-    <hr class="rule solid">
-
-    <!-- PROJECT 2 -->
-    <div class="line">
-      <h2 class="section">ALSO RUNG UP</h2>
-      <div class="item-row"><span class="name" style="font-size:13px;">Ironwear</span><span class="qty">Final Project</span></div>
-      <p style="font-size:11.5px; line-height:1.6; margin:6px 0 0;">Built as the final project for my Programming course at IES Villablanca — database structure, interface design, and backend logic in PHP.</p>
-      <a class="proj-link" href="https://ironwear.free.nf/welcome.php" target="_blank" rel="noopener">VIEW LIVE SITE</a>
-    </div>
-
-    <hr class="rule solid">
-
-    <!-- EXPERIENCE -->
-    <div class="line">
-      <h2 class="section">WORK HISTORY</h2>
-      <div class="job">
-        <div class="role">Store Manager</div>
-        <div class="org">M. C. Agulto Enterprises · 2018–2024</div>
-        <ul>
-          <li>Owned results end-to-end, using sales data to guide pricing and promo decisions</li>
-          <li>Ran marketing campaigns and promotions, iterating on what drove sales — not what looked best</li>
-          <li>Led teams around a continuous-improvement, customer-first culture</li>
-        </ul>
+      <div class="skillgroup">
+        <div class="label">Data</div>
+        <div class="taglist">
+          <span class="tag-pill">SQL / MySQL</span>
+          <span class="tag-pill">PostgreSQL fundamentals</span>
+          <span class="tag-pill">Data modeling</span>
+        </div>
       </div>
-      <div class="job">
-        <div class="role">University IT Lecturer</div>
-        <div class="org">Tarlac State University · 2016–2017</div>
-        <ul>
-          <li>Taught IT fundamentals and database theory</li>
-          <li>Designed structured curricula and materials</li>
-        </ul>
+      <div class="skillgroup">
+        <div class="label">Tools &amp; practice</div>
+        <div class="taglist">
+          <span class="tag-pill">Git</span>
+          <span class="tag-pill">VS Code</span>
+          <span class="tag-pill">XAMPP</span>
+          <span class="tag-pill">AI-assisted development</span>
+        </div>
       </div>
     </div>
+  </section>
 
-    <hr class="rule solid">
+  <section id="work">
+    <div class="section-head"><h2>Selected work</h2><span class="tag mono">03 projects</span></div>
 
-    <!-- EDUCATION -->
-    <div class="line">
-      <h2 class="section">EDUCATION</h2>
-      <div class="item-row"><span class="name">Web App Development (DAW)</span><span class="val">In progress</span></div>
-      <div class="item-row"><span class="name">B.S. Information Technology</span><span class="val">2012–2016</span></div>
+    <div class="project">
+      <div class="project-top">
+        <h3>letmeKnow</h3>
+        <span class="role">Founder</span>
+      </div>
+      <div class="stack"><span>Landing page</span><span>Brand &amp; design</span><span>HTML / CSS</span></div>
+      <p>A small web development studio I started, building sites and landing pages for small businesses — scope, design, and build, end to end. The studio's own site doubles as a case-study showcase for Dan Store and Ironwear.</p>
+      <a class="live" href="https://letmeknow.xo.je" target="_blank" rel="noopener">View site →</a>
     </div>
 
-    <hr class="rule solid">
+    <div class="project">
+      <div class="project-top">
+        <h3>Dan Store</h3>
+        <span class="role">POS web application</span>
+      </div>
+      <div class="stack"><span>JavaScript</span><span>LocalStorage</span><span>UI/UX</span></div>
+      <p>A production point-of-sale app built solo for a real retail business, covering inventory, sales, partial-payment tracking, and multi-branch management. Shipped and refined against real staff workflows over time.</p>
+      <a class="live" href="https://danstore.page.gd" target="_blank" rel="noopener">View live site →</a>
+    </div>
 
-    <!-- FOOTER -->
-    <div class="line">
-      <div class="total-row"><span>TOTAL</span><span>1 CRO DESIGNER, READY TO SHIP</span></div>
-      <div class="meta-row"><span>PAYMENT METHOD</span><span>OPPORTUNITY</span></div>
-      <div class="barcode" id="barcode"></div>
-      <p class="thankyou">THANK YOU FOR VISITING</p>
-      <p class="footer-note">Tagalog — Native · English — Fluent · Spanish — B1<br>Madrid, Spain · Work permit holder</p>
+    <div class="project">
+      <div class="project-top">
+        <h3>Ironwear</h3>
+        <span class="role">E-commerce web application</span>
+      </div>
+      <div class="stack"><span>PHP</span><span>MySQL</span><span>E-commerce</span></div>
+      <p>Final Web Application Development project at IES Villablanca — database structure, interface design, and PHP backend logic behind a working e-commerce flow.</p>
+      <a class="live" href="https://ironwear.free.nf" target="_blank" rel="noopener">View live site →</a>
+    </div>
+  </section>
 
-      <div class="cta-row">
-        <a class="proj-link" href="mailto:danielagultolim@gmail.com">EMAIL ME</a>
-        <a class="proj-link" href="https://danstore.page.gd/" target="_blank" rel="noopener">DAN STORE</a>
-        <a class="proj-link" href="https://ironwear.free.nf/welcome.php" target="_blank" rel="noopener">IRONWEAR</a>
+  <section id="experience">
+    <div class="section-head"><h2>Experience</h2><span class="tag mono">before software</span></div>
+
+    <div class="job">
+      <div class="job-top">
+        <h3>Store Manager, M. C. Agulto Enterprises</h3>
+        <span class="when">2018 – 2024</span>
+      </div>
+      <ul>
+        <li>Designed and optimized end-to-end operational processes covering inventory, sales, and reporting.</li>
+        <li>Led marketing campaigns and promotions, using sales and customer insight to improve the experience.</li>
+        <li>Trained and supervised teams while driving continuous process improvements.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <h3>University IT Lecturer, Tarlac State University</h3>
+        <span class="when">2016 – 2017</span>
+      </div>
+      <ul>
+        <li>Taught IT fundamentals and databases; designed structured curricula and course materials.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="row">
+      <div>
+        <h2>Let's talk.</h2>
+        <div class="meta">
+          <div><a href="mailto:danielagultolim@gmail.com">danielagultolim@gmail.com</a></div>
+          <div>+34 672 189 733 · Madrid, Spain</div>
+          <div>Tagalog (native) · English (fluent) · Spanish (B1)</div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><a href="https://letmeknow.xo.je" target="_blank" rel="noopener">letmeknow.xo.je</a></div>
+        <div><a href="https://danstore.page.gd" target="_blank" rel="noopener">danstore.page.gd</a></div>
+        <div><a href="https://ironwear.free.nf" target="_blank" rel="noopener">ironwear.free.nf</a></div>
       </div>
     </div>
-
-  </div>
-  <div class="zig-bot"></div>
+  </footer>
 </div>
-
-<script>
-  // date stamp
-  document.getElementById('today').textContent = new Date().toLocaleDateString('en-GB', { day:'2-digit', month:'2-digit', year:'numeric' });
-
-  // barcode
-  const bc = document.getElementById('barcode');
-  for(let i=0;i<46;i++){
-    const bar = document.createElement('div');
-    const w = [2,2,3,2,4,2,3][i % 7];
-    const h = 20 + ((i*37) % 26);
-    bar.style.width = w + 'px';
-    bar.style.height = h + 'px';
-    bc.appendChild(bar);
-  }
-
-  // scroll reveal
-  const lines = document.querySelectorAll('.line');
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('show');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold:0.15 });
-  lines.forEach(l=>obs.observe(l));
-</script>
 
 </body>
 </html>
