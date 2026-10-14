@@ -1,2 +1,2 @@
 # danielagulto.github.io
-Personal portfolio showcasing my UX/UI design process, front-end development projects, and case studies.
+Personal portfolio of Daniel Agulto — full-stack developer focused on backend and database development (JavaScript, React, Node.js, PHP, PostgreSQL, MySQL). Based in Madrid, Spain.
