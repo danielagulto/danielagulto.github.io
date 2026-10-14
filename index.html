@@ -3,8 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Agulto — Full-Stack Web Developer</title>
-<meta name="description" content="Full-stack web developer building products end to end — database to interface. Founder of letmeKnow.">
+<title>Daniel Agulto — Full-Stack Developer | Backend &amp; Database</title>
+<meta name="description" content="Full-stack developer focused on backend and database development. JavaScript, React, Node.js, PHP, PostgreSQL, MySQL. Founder of letmeKnow. Based in Madrid, Spain.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Daniel Agulto — Full-Stack Developer | Backend &amp; Database">
+<meta property="og:description" content="Full-stack developer focused on backend and database development. Founder of letmeKnow. Based in Madrid, Spain.">
+<meta name="theme-color" content="#F5F3ED">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -163,6 +167,9 @@
     background: rgba(255,255,255,0.5);
   }
 
+  .tag-pill.learning{ border-style: dashed; background: transparent; }
+  .skillgroup .note{ font-size: 12.5px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
+
   /* ---- projects ---- */
   .project{ margin-bottom: 40px; }
   .project:last-child{ margin-bottom:0; }
@@ -186,6 +193,14 @@
     border: 1px solid var(--paper-line);
     padding: 3px 8px;
   }
+  .project .status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    border: 1px dashed var(--ink-soft);
+    padding: 3px 8px;
+    display:inline-block;
+  }
   .project a.live{
     font-size: 13.5px; font-weight:500; text-decoration:none;
     border-bottom: 1px solid var(--blue);
@@ -196,6 +211,7 @@
   .job:last-child{ margin-bottom:0; }
   .job-top{ display:flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; }
   .job h3{ font-size:16px; margin:0; font-weight:600; }
+  .job .where{ font-size: 13.5px; color: var(--ink-soft); margin-top: 2px; }
   .job .when{ font-family:'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); }
   .job ul{ margin: 10px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; }
   .job ul li{ margin-bottom: 4px; }
@@ -214,8 +230,10 @@
   <div class="wrap titleblock">
     <div><strong>D. AGULTO JR.</strong> — full-stack developer</div>
     <nav>
+      <a href="#skills">Skills</a>
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -224,7 +242,7 @@
 <div class="wrap">
   <section class="hero" id="top">
     <h1>I build products from the database up.</h1>
-    <p class="lede">Full-stack web developer working across React, Node.js, PHP, and relational databases — with 8+ years leading teams before moving into software. Founder of letmeKnow. Based in Madrid, available immediately.</p>
+    <p class="lede">Full-stack developer focused on backend and database development, working with JavaScript, React, Node.js, PHP, PostgreSQL, and MySQL. I turn business requirements into working software and manage projects from requirements through delivery. Founder of letmeKnow. Based in Madrid, available immediately.</p>
     <div class="cta-row">
       <a class="btn" href="mailto:danielagultolim@gmail.com">Email me</a>
       <a class="btn ghost" href="https://letmeknow.xo.je" target="_blank" rel="noopener">letmeKnow →</a>
@@ -258,13 +276,24 @@
   <div class="factstrip">
     <div class="fact"><span class="label">Location</span><span class="value">Madrid, Spain</span></div>
     <div class="fact"><span class="label">Status</span><span class="value">Open to work</span></div>
-    <div class="fact"><span class="label">Experience</span><span class="value">8+ years</span></div>
-    <div class="fact"><span class="label">Education</span><span class="value">DAW, in progress</span></div>
+    <div class="fact"><span class="label">Work permit</span><span class="value">Spanish work authorization</span></div>
+    <div class="fact"><span class="label">Education</span><span class="value">B.S. IT · DAW in progress</span></div>
   </div>
 
   <section id="skills">
     <div class="section-head"><h2>Skills</h2><span class="tag mono">stack</span></div>
     <div class="skillgrid">
+      <div class="skillgroup">
+        <div class="label">Backend &amp; data</div>
+        <div class="taglist">
+          <span class="tag-pill">Node.js</span>
+          <span class="tag-pill">PHP</span>
+          <span class="tag-pill">PostgreSQL</span>
+          <span class="tag-pill">MySQL</span>
+          <span class="tag-pill">SQL query optimization</span>
+          <span class="tag-pill">CRUD design</span>
+        </div>
+      </div>
       <div class="skillgroup">
         <div class="label">Frontend</div>
         <div class="taglist">
@@ -272,59 +301,71 @@
           <span class="tag-pill">React</span>
           <span class="tag-pill">HTML5</span>
           <span class="tag-pill">CSS3</span>
-          <span class="tag-pill">Responsive Design</span>
-          <span class="tag-pill">Figma</span>
+          <span class="tag-pill">Responsive design</span>
+          <span class="tag-pill">Figma (foundational)</span>
         </div>
       </div>
       <div class="skillgroup">
-        <div class="label">Backend</div>
+        <div class="label">Engineering</div>
         <div class="taglist">
-          <span class="tag-pill">Node.js</span>
-          <span class="tag-pill">PHP</span>
-          <span class="tag-pill">REST APIs</span>
-          <span class="tag-pill">CRUD design</span>
-        </div>
-      </div>
-      <div class="skillgroup">
-        <div class="label">Data</div>
-        <div class="taglist">
-          <span class="tag-pill">SQL / MySQL</span>
-          <span class="tag-pill">PostgreSQL fundamentals</span>
-          <span class="tag-pill">Data modeling</span>
-        </div>
-      </div>
-      <div class="skillgroup">
-        <div class="label">Tools &amp; practice</div>
-        <div class="taglist">
-          <span class="tag-pill">Git</span>
+          <span class="tag-pill">Git version control</span>
+          <span class="tag-pill">Database design fundamentals</span>
+          <span class="tag-pill">Automated testing</span>
           <span class="tag-pill">VS Code</span>
           <span class="tag-pill">XAMPP</span>
           <span class="tag-pill">AI-assisted development</span>
         </div>
       </div>
+      <div class="skillgroup">
+        <div class="label">Data &amp; reporting</div>
+        <div class="taglist">
+          <span class="tag-pill">Data cleaning &amp; validation</span>
+          <span class="tag-pill">KPI reporting</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <div class="label">Professional</div>
+        <div class="taglist">
+          <span class="tag-pill">Independent project delivery</span>
+          <span class="tag-pill">Requirements gathering</span>
+          <span class="tag-pill">Process improvement</span>
+          <span class="tag-pill">Team leadership</span>
+          <span class="tag-pill">Training &amp; mentoring</span>
+        </div>
+      </div>
+      <div class="skillgroup">
+        <div class="label">Currently learning</div>
+        <div class="taglist">
+          <span class="tag-pill learning">TypeScript</span>
+          <span class="tag-pill learning">Next.js</span>
+          <span class="tag-pill learning">Python</span>
+          <span class="tag-pill learning">CI/CD</span>
+        </div>
+        <div class="note">Also strengthening automated testing practice.</div>
+      </div>
     </div>
   </section>
 
   <section id="work">
-    <div class="section-head"><h2>Selected work</h2><span class="tag mono">03 projects</span></div>
+    <div class="section-head"><h2>Selected work</h2><span class="tag mono">04 projects</span></div>
 
     <div class="project">
       <div class="project-top">
         <h3>letmeKnow</h3>
-        <span class="role">Founder</span>
+        <span class="role">Founder &amp; developer</span>
       </div>
       <div class="stack"><span>Landing page</span><span>Brand &amp; design</span><span>HTML / CSS</span></div>
-      <p>A small web development studio I started, building sites and landing pages for small businesses — scope, design, and build, end to end. The studio's own site doubles as a case-study showcase for Dan Store and Ironwear.</p>
+      <p>A small web development studio I founded and run, handling client requirements, design, development, deployment, and delivery for small-business websites and applications. The studio's own site doubles as a case-study showcase for Dan Store and Ironwear.</p>
       <a class="live" href="https://letmeknow.xo.je" target="_blank" rel="noopener">View site →</a>
     </div>
 
     <div class="project">
       <div class="project-top">
         <h3>Dan Store</h3>
-        <span class="role">POS web application</span>
+        <span class="role">POS &amp; operational management system</span>
       </div>
       <div class="stack"><span>JavaScript</span><span>LocalStorage</span><span>UI/UX</span></div>
-      <p>A production point-of-sale app built solo for a real retail business, covering inventory, sales, partial-payment tracking, and multi-branch management. Shipped and refined against real staff workflows over time.</p>
+      <p>A business application I designed and built on my own for point-of-sale, inventory, sales records, unpaid-transaction tracking, and multi-branch management. I structured the data model (products, sales, branches) and implemented the business logic around real staff workflows, refining it over time.</p>
       <a class="live" href="https://danstore.page.gd" target="_blank" rel="noopener">View live site →</a>
     </div>
 
@@ -334,23 +375,59 @@
         <span class="role">E-commerce web application</span>
       </div>
       <div class="stack"><span>PHP</span><span>MySQL</span><span>E-commerce</span></div>
-      <p>Final Web Application Development project at IES Villablanca — database structure, interface design, and PHP backend logic behind a working e-commerce flow.</p>
+      <p>Contributed to a school final project at IES Villablanca covering database structure, interface design, PHP backend logic, and e-commerce functionality.</p>
       <a class="live" href="https://ironwear.free.nf" target="_blank" rel="noopener">View live site →</a>
+    </div>
+
+    <div class="project">
+      <div class="project-top">
+        <h3>SecureOps Dashboard</h3>
+        <span class="role">Portfolio project</span>
+      </div>
+      <div class="stack"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span></div>
+      <p>A multi-page security operations dashboard in development. The current interface covers servers, endpoints, security alerts, incidents, and audit logs. Still to come: backend/API integration, persistent data, automated testing, and CI/CD.</p>
+      <span class="status">In progress</span>
     </div>
   </section>
 
   <section id="experience">
-    <div class="section-head"><h2>Experience</h2><span class="tag mono">before software</span></div>
+    <div class="section-head"><h2>Experience</h2><span class="tag mono">career</span></div>
+
+    <div class="job">
+      <div class="job-top">
+        <h3>Founder &amp; Developer, letmeKnow</h3>
+        <span class="when">2025 – Present</span>
+      </div>
+      <div class="where">Web development studio</div>
+      <ul>
+        <li>Founded and operate a small web development studio, managing client requirements, UI/design, development, deployment, and product delivery.</li>
+        <li>Build business-focused websites and applications, translating client needs into technical requirements and deliverables.</li>
+        <li>Manage projects independently, from initial requirements through implementation and handover.</li>
+      </ul>
+    </div>
 
     <div class="job">
       <div class="job-top">
         <h3>Store Manager, M. C. Agulto Enterprises</h3>
-        <span class="when">2018 – 2024</span>
+        <span class="when">2019 – 2024</span>
       </div>
       <ul>
-        <li>Designed and optimized end-to-end operational processes covering inventory, sales, and reporting.</li>
-        <li>Led marketing campaigns and promotions, using sales and customer insight to improve the experience.</li>
-        <li>Trained and supervised teams while driving continuous process improvements.</li>
+        <li>Designed and improved operational processes covering inventory, sales, transaction tracking, and business reporting.</li>
+        <li>Worked with sales and customer information to identify patterns, support decisions, and improve customer experience.</li>
+        <li>Managed operational data and reporting requirements, with a focus on KPIs and business performance.</li>
+        <li>Led, trained, and supervised teams while driving service and process improvements.</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <h3>Receptionist / Admin Staff, Cobra Fitness</h3>
+        <span class="when">Sep 2017 – Dec 2018</span>
+      </div>
+      <div class="where">Abu Dhabi, UAE</div>
+      <ul>
+        <li>Managed class, trainer, and appointment schedules, adapting to cancellations, no-shows, and staff changes.</li>
+        <li>Maintained accurate booking, attendance, and membership records and prepared daily administrative reports.</li>
       </ul>
     </div>
 
@@ -360,8 +437,36 @@
         <span class="when">2016 – 2017</span>
       </div>
       <ul>
-        <li>Taught IT fundamentals and databases; designed structured curricula and course materials.</li>
+        <li>Taught theoretical and practical IT classes, including development fundamentals and databases.</li>
+        <li>Created learning materials and explained programming and database concepts to students.</li>
       </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="section-head"><h2>Education</h2><span class="tag mono">&amp; languages</span></div>
+
+    <div class="job">
+      <div class="job-top">
+        <h3>Web Application Development (DAW), IES Villablanca</h3>
+        <span class="when">In progress</span>
+      </div>
+      <div class="where">Madrid, Spain</div>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <h3>B.S. Information Technology, Tarlac State University</h3>
+        <span class="when">2012 – 2016</span>
+      </div>
+      <div class="where">GWA 2.25 (1.0 highest – 5.0 lowest)</div>
+    </div>
+
+    <div class="job">
+      <div class="job-top">
+        <h3>Languages</h3>
+      </div>
+      <div class="where">Tagalog (native) · English (fluent) · Spanish (B1, intermediate)</div>
     </div>
   </section>
 
@@ -372,6 +477,7 @@
         <div class="meta">
           <div><a href="mailto:danielagultolim@gmail.com">danielagultolim@gmail.com</a></div>
           <div>+34 672 189 733 · Madrid, Spain</div>
+          <div>Spanish work authorization</div>
           <div>Tagalog (native) · English (fluent) · Spanish (B1)</div>
         </div>
       </div>
