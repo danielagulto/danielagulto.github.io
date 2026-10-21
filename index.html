@@ -3,233 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daniel Agulto — Full-Stack Developer | Backend &amp; Database</title>
-<meta name="description" content="Full-stack developer focused on backend and database development. JavaScript, React, Node.js, PHP, PostgreSQL, MySQL. Founder of letmeKnow. Based in Madrid, Spain.">
+<title>Daniel Agulto — Full-Stack Developer (Java, Spring Boot, React) | Madrid</title>
+<meta name="description" content="Full-stack developer focused on backend and database development: Java, Spring Boot, React, TypeScript, Node.js, PHP, PostgreSQL and MySQL. Featured project: InsureFlow, an insurance operations platform. Based in Madrid, Spain.">
+<link rel="canonical" href="https://danielagulto.github.io/">
+<meta name="author" content="Daniel L. Agulto Jr.">
+<meta name="robots" content="index, follow">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Daniel Agulto — Full-Stack Developer | Backend &amp; Database">
-<meta property="og:description" content="Full-stack developer focused on backend and database development. Founder of letmeKnow. Based in Madrid, Spain.">
-<meta name="theme-color" content="#F5F3ED">
+<meta property="og:url" content="https://danielagulto.github.io/">
+<meta property="og:site_name" content="Daniel Agulto — Portfolio">
+<meta property="og:image" content="https://danielagulto.github.io/assets/img/og-image.png">
+<meta property="og:image:alt" content="InsureFlow operations dashboard, a full-stack project by Daniel Agulto">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="Daniel Agulto — Full-Stack Developer (Java, Spring Boot, React)">
+<meta property="og:description" content="Full-stack developer focused on backend and database development. Featured project: InsureFlow (Java, Spring Boot, React, TypeScript). Based in Madrid, Spain.">
+<meta name="theme-color" content="#14111A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314172B'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' text-anchor='middle' fill='%23F6F6F9'%3EDA%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper: #F5F3ED;
-    --paper-line: #D8D3C6;
-    --ink: #1B1F23;
-    --ink-soft: #4B5157;
-    --blue: #2455A4;
-    --blue-soft: #E4EAF4;
-  }
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  body{
-    margin:0;
-    background:
-      linear-gradient(var(--paper-line) 1px, transparent 1px) 0 0/100% 32px,
-      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px) 0 0/32px 100%,
-      var(--paper);
-    background-attachment: local;
-    color: var(--ink);
-    font-family: 'IBM Plex Sans', sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-  @media (prefers-reduced-motion: reduce){
-    *{ animation: none !important; transition: none !important; }
-  }
-  a{ color: var(--blue); }
-  .wrap{
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-  .mono{ font-family:'IBM Plex Mono', monospace; }
-
-  /* ---- Titleblock header ---- */
-  header{
-    border-bottom: 1.5px solid var(--ink);
-    background: var(--paper);
-    position: sticky; top:0; z-index: 5;
-  }
-  .titleblock{
-    display:flex; justify-content: space-between; align-items: center;
-    padding: 14px 0;
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    color: var(--ink-soft);
-  }
-  .titleblock strong{ color: var(--ink); font-weight:600; }
-  .titleblock nav a{ color: var(--ink-soft); text-decoration:none; margin-left: 18px; }
-  .titleblock nav a:hover{ color: var(--blue); }
-
-  /* ---- Hero ---- */
-  .hero{ padding: 72px 0 48px; }
-  .hero h1{
-    font-family:'Fraunces', serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-size: clamp(34px, 5vw, 50px);
-    line-height: 1.15;
-    margin: 0 0 20px;
-    max-width: 15ch;
-  }
-  .hero p.lede{
-    font-size: 18px;
-    line-height: 1.6;
-    color: var(--ink-soft);
-    max-width: 54ch;
-    margin: 0 0 28px;
-  }
-  .hero .cta-row{ display:flex; gap:14px; flex-wrap: wrap; align-items:center; }
-  .btn{
-    display:inline-block;
-    padding: 11px 20px;
-    background: var(--ink);
-    color: var(--paper);
-    text-decoration:none;
-    font-size: 14px;
-    font-weight: 500;
-    border: 1.5px solid var(--ink);
-  }
-  .btn:hover{ background: var(--blue); border-color: var(--blue); }
-  .btn.ghost{ background: transparent; color: var(--ink); }
-  .btn.ghost:hover{ background: var(--blue-soft); color: var(--blue); border-color: var(--blue); }
-
-  /* schematic diagram */
-  .schematic{ margin: 44px 0 8px; }
-  .schematic svg{ width: 100%; height: auto; display:block; }
-
-  /* ---- fact strip ---- */
-  .factstrip{
-    border-top: 1.5px solid var(--ink);
-    border-bottom: 1px solid var(--paper-line);
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .fact{
-    padding: 16px 18px;
-    border-right: 1px solid var(--paper-line);
-  }
-  .fact:last-child{ border-right:none; }
-  .fact .label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 10.5px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    display:block;
-    margin-bottom: 6px;
-  }
-  .fact .value{ font-size: 15px; font-weight: 500; }
-
-  @media (max-width: 620px){
-    .factstrip{ grid-template-columns: repeat(2, 1fr); }
-    .fact:nth-child(2n){ border-right:none; }
-    .fact{ border-bottom: 1px solid var(--paper-line); }
-  }
-
-  /* ---- section framing ---- */
-  section{ padding: 56px 0; border-bottom: 1px solid var(--paper-line); }
-  section:last-of-type{ border-bottom:none; }
-  .section-head{
-    display:flex; align-items:baseline; gap: 12px;
-    margin-bottom: 28px;
-  }
-  .section-head h2{
-    font-family:'Fraunces', serif;
-    font-weight: 500;
-    font-size: 22px;
-    margin: 0;
-  }
-  .section-head .tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-soft);
-  }
-
-  /* ---- skills ---- */
-  .skillgrid{ display:grid; grid-template-columns: 1fr 1fr; gap: 22px 32px; }
-  @media (max-width: 560px){ .skillgrid{ grid-template-columns: 1fr; } }
-  .skillgroup .label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--blue);
-    margin-bottom: 8px;
-  }
-  .taglist{ display:flex; flex-wrap: wrap; gap: 8px; }
-  .tag-pill{
-    font-size: 13px;
-    padding: 5px 10px;
-    border: 1px solid var(--paper-line);
-    background: rgba(255,255,255,0.5);
-  }
-
-  .tag-pill.learning{ border-style: dashed; background: transparent; }
-  .skillgroup .note{ font-size: 12.5px; color: var(--ink-soft); margin-top: 8px; line-height: 1.5; }
-
-  /* ---- projects ---- */
-  .project{ margin-bottom: 40px; }
-  .project:last-child{ margin-bottom:0; }
-  .project-top{
-    display:flex; justify-content: space-between; align-items: baseline;
-    flex-wrap: wrap; gap: 8px 16px;
-    margin-bottom: 8px;
-  }
-  .project h3{ font-size: 18px; margin:0; font-weight:600; }
-  .project .role{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 11.5px;
-    color: var(--blue);
-  }
-  .project p{ margin: 0 0 12px; color: var(--ink-soft); line-height: 1.6; font-size: 15px; max-width: 62ch; }
-  .project .stack{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom: 12px; }
-  .project .stack span{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-soft);
-    border: 1px solid var(--paper-line);
-    padding: 3px 8px;
-  }
-  .project .status{
-    font-family:'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-soft);
-    border: 1px dashed var(--ink-soft);
-    padding: 3px 8px;
-    display:inline-block;
-  }
-  .project a.live{
-    font-size: 13.5px; font-weight:500; text-decoration:none;
-    border-bottom: 1px solid var(--blue);
-  }
-
-  /* ---- experience ---- */
-  .job{ margin-bottom: 26px; }
-  .job:last-child{ margin-bottom:0; }
-  .job-top{ display:flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; }
-  .job h3{ font-size:16px; margin:0; font-weight:600; }
-  .job .where{ font-size: 13.5px; color: var(--ink-soft); margin-top: 2px; }
-  .job .when{ font-family:'IBM Plex Mono', monospace; font-size: 12px; color: var(--ink-soft); }
-  .job ul{ margin: 10px 0 0; padding-left: 18px; color: var(--ink-soft); font-size: 14.5px; line-height: 1.6; }
-  .job ul li{ margin-bottom: 4px; }
-
-  /* ---- footer ---- */
-  footer{ padding: 48px 0 60px; }
-  footer .row{ display:flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
-  footer h2{ font-family:'Fraunces', serif; font-weight:500; font-size: 24px; margin: 0 0 10px; }
-  footer .meta{ font-family:'IBM Plex Mono', monospace; font-size:12.5px; color: var(--ink-soft); line-height:1.8; }
-  footer .meta a{ color: var(--ink-soft); }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Daniel L. Agulto Jr.",
+  "url": "https://danielagulto.github.io/",
+  "jobTitle": "Full-Stack Developer",
+  "email": "mailto:danielagultolim@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" },
+  "sameAs": ["https://github.com/danielagulto"],
+  "knowsAbout": ["Java", "Spring Boot", "React", "TypeScript", "REST APIs", "SQL", "PostgreSQL", "MySQL", "Node.js", "PHP"]
+}
+</script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header>
   <div class="wrap titleblock">
     <div><strong>D. AGULTO JR.</strong> — full-stack developer</div>
-    <nav>
+    <nav aria-label="Primary">
       <a href="#skills">Skills</a>
       <a href="#work">Work</a>
       <a href="#experience">Experience</a>
@@ -239,39 +52,21 @@
   </div>
 </header>
 
-<div class="wrap">
+<main id="main" class="wrap">
   <section class="hero" id="top">
-    <h1>I build products from the database up.</h1>
-    <p class="lede">Full-stack developer focused on backend and database development, working with JavaScript, React, Node.js, PHP, PostgreSQL, and MySQL. I turn business requirements into working software and manage projects from requirements through delivery. Founder of letmeKnow. Based in Madrid, available immediately.</p>
-    <div class="cta-row">
-      <a class="btn" href="mailto:danielagultolim@gmail.com">Email me</a>
-      <a class="btn ghost" href="https://letmeknow.xo.je" target="_blank" rel="noopener">letmeKnow →</a>
-    </div>
-
-    <div class="schematic" aria-hidden="true">
-      <svg viewBox="0 0 660 110" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="#2455A4"/>
-          </marker>
-        </defs>
-        <line x1="120" y1="55" x2="270" y2="55" stroke="#2455A4" stroke-width="1.5" marker-end="url(#arrow)"/>
-        <line x1="390" y1="55" x2="540" y2="55" stroke="#2455A4" stroke-width="1.5" marker-end="url(#arrow)"/>
-
-        <rect x="10" y="25" width="110" height="60" fill="none" stroke="#1B1F23" stroke-width="1.5"/>
-        <text x="65" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#1B1F23">database</text>
-        <text x="65" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4B5157">PostgreSQL / SQL</text>
-
-        <rect x="280" y="25" width="110" height="60" fill="none" stroke="#1B1F23" stroke-width="1.5"/>
-        <text x="335" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#1B1F23">backend</text>
-        <text x="335" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4B5157">Node.js / PHP</text>
-
-        <rect x="550" y="25" width="100" height="60" fill="none" stroke="#1B1F23" stroke-width="1.5"/>
-        <text x="600" y="50" text-anchor="middle" font-family="IBM Plex Mono" font-size="11" fill="#1B1F23">frontend</text>
-        <text x="600" y="66" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" fill="#4B5157">React / UI</text>
-      </svg>
-    </div>
+    <div class="hero-copy">
+    <p class="eyebrow rv"><span class="dot"></span>Open to work · Madrid, Spain</p>
+    <h1 class="rv">I build products from the <em>database up.</em></h1>
+    <p class="lede rv">Full-stack developer focused on backend and database development, working with Java and Spring Boot, JavaScript, React and TypeScript, Node.js, PHP, PostgreSQL, and MySQL. I turn business requirements into working software and manage projects from requirements through delivery. Founder of letmeKnow. Based in Madrid, available immediately.</p>
+    <div class="cta-row rv">
+        <a class="btn" href="mailto:danielagultolim@gmail.com">Email me</a>
+        <a class="btn ghost" href="insureflow.html">See InsureFlow</a>
+        <a class="btn ghost" href="https://github.com/danielagulto" target="_blank" rel="noopener">GitHub</a>
+      </div>
+  </div>
+    <figure class="portrait rv"><div class="portrait-frame"><img src="assets/daniel.jpg" width="900" height="1200" alt="Portrait of Daniel Agulto" fetchpriority="high"></div><figcaption class="portrait-card"><strong>Daniel Agulto</strong><span>Full-stack developer · Madrid</span></figcaption></figure>
   </section>
+  <div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>MySQL</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>PHP</span><span>REST APIs</span><span>Docker</span><span>JUnit</span><span>Java</span><span>Spring Boot</span><span>PostgreSQL</span><span>MySQL</span><span>React</span><span>TypeScript</span><span>Node.js</span><span>PHP</span><span>REST APIs</span><span>Docker</span><span>JUnit</span></div></div>
 
   <div class="factstrip">
     <div class="fact"><span class="label">Location</span><span class="value">Madrid, Spain</span></div>
@@ -286,10 +81,15 @@
       <div class="skillgroup">
         <div class="label">Backend &amp; data</div>
         <div class="taglist">
+          <span class="tag-pill">Java</span>
+          <span class="tag-pill">Spring Boot</span>
+          <span class="tag-pill">REST API design</span>
+          <span class="tag-pill">Spring Data JPA</span>
           <span class="tag-pill">Node.js</span>
           <span class="tag-pill">PHP</span>
           <span class="tag-pill">PostgreSQL</span>
           <span class="tag-pill">MySQL</span>
+          <span class="tag-pill">MariaDB</span>
           <span class="tag-pill">SQL query optimization</span>
           <span class="tag-pill">CRUD design</span>
         </div>
@@ -299,6 +99,7 @@
         <div class="taglist">
           <span class="tag-pill">JavaScript (ES6+)</span>
           <span class="tag-pill">React</span>
+          <span class="tag-pill">TypeScript</span>
           <span class="tag-pill">HTML5</span>
           <span class="tag-pill">CSS3</span>
           <span class="tag-pill">Responsive design</span>
@@ -308,7 +109,11 @@
       <div class="skillgroup">
         <div class="label">Engineering</div>
         <div class="taglist">
-          <span class="tag-pill">Git version control</span>
+          <span class="tag-pill">Git &amp; GitHub</span>
+          <span class="tag-pill">GitHub Actions (CI)</span>
+          <span class="tag-pill">JUnit 5 / MockMvc</span>
+          <span class="tag-pill">Docker Compose</span>
+          <span class="tag-pill">Spring Security (HTTP Basic)</span>
           <span class="tag-pill">Database design fundamentals</span>
           <span class="tag-pill">Automated testing</span>
           <span class="tag-pill">VS Code</span>
@@ -336,10 +141,9 @@
       <div class="skillgroup">
         <div class="label">Currently learning</div>
         <div class="taglist">
-          <span class="tag-pill learning">TypeScript</span>
           <span class="tag-pill learning">Next.js</span>
           <span class="tag-pill learning">Python</span>
-          <span class="tag-pill learning">CI/CD</span>
+          <span class="tag-pill learning">Automated deployment (CD)</span>
         </div>
         <div class="note">Also strengthening automated testing practice.</div>
       </div>
@@ -347,7 +151,35 @@
   </section>
 
   <section id="work">
-    <div class="section-head"><h2>Selected work</h2><span class="tag mono">04 projects</span></div>
+    <div class="section-head"><h2>Selected work</h2><span class="tag mono">05 projects</span></div>
+
+    <article class="project featured" aria-labelledby="insureflow-title">
+      <span class="featured-tag">Featured project, most recent</span>
+      <div class="project-top">
+        <h3 id="insureflow-title">InsureFlow — Insurance Operations Portfolio</h3>
+        <span class="role">Designer &amp; developer</span>
+      </div>
+      <div class="stack"><span>Java 21</span><span>Spring Boot 3</span><span>Spring Security</span><span>Spring Data JPA</span><span>React 18</span><span>TypeScript</span><span>Vite</span><span>H2 / MariaDB</span><span>JUnit 5</span><span>GitHub Actions</span><span>Docker Compose</span></div>
+      <p>A full-stack operations workspace for an insurance back office: a React and TypeScript single-page app on top of a Spring Boot REST API with relational persistence. It centralises customers, policies, application processing and renewal tracking in one authenticated dashboard. It is an independent demo that runs on synthetic data, not a production insurance platform.</p>
+      <ul class="points">
+        <li>Customer and policy CRUD with Bean Validation and duplicate protection (email, policy number).</li>
+        <li>Application workflow: Submitted, In review, Approved, Declined.</li>
+        <li>Dashboard metrics and a 60-day renewal view computed from live API data.</li>
+        <li>Spring Security with HTTP Basic, BCrypt-hashed credentials supplied by environment variables, and a sign-in/sign-out flow.</li>
+        <li>5 backend tests (JUnit 5, MockMvc) and a GitHub Actions workflow for backend tests and the frontend build; Docker Compose setup with MariaDB.</li>
+      </ul>
+      <figure class="shot">
+        <a href="insureflow.html"><img src="assets/img/insureflow-overview.webp" width="1200" height="750" alt="InsureFlow overview dashboard showing customer, application, policy and premium metrics, an application pipeline table and upcoming renewals" loading="lazy"></a>
+        <figcaption>Overview dashboard, shown with the repository's synthetic demo records.</figcaption>
+      </figure>
+      <span class="status done">Core features implemented</span> <span class="status">Public hosted demo: not live yet</span>
+      <div class="actions">
+        <a class="btn" href="insureflow.html">Project details</a>
+        <a class="live" href="https://github.com/danielagulto/insureflow-portfolio" target="_blank" rel="noopener">Source on GitHub </a>
+        <a class="live" href="mailto:danielagultolim@gmail.com?subject=InsureFlow%20demo%20request">Request a demo </a>
+      </div>
+      <p class="note">Planned, not built yet: document center, multi-user role-based access, hosted demo.</p>
+    </article>
 
     <div class="project">
       <div class="project-top">
@@ -356,7 +188,7 @@
       </div>
       <div class="stack"><span>Landing page</span><span>Brand &amp; design</span><span>HTML / CSS</span></div>
       <p>A small web development studio I founded and run, handling client requirements, design, development, deployment, and delivery for small-business websites and applications. The studio's own site doubles as a case-study showcase for Dan Store and Ironwear.</p>
-      <a class="live" href="https://letmeknow.xo.je" target="_blank" rel="noopener">View site →</a>
+      <a class="live" href="https://letmeknow.xo.je" target="_blank" rel="noopener">View site</a>
     </div>
 
     <div class="project">
@@ -366,7 +198,7 @@
       </div>
       <div class="stack"><span>JavaScript</span><span>LocalStorage</span><span>UI/UX</span></div>
       <p>A business application I designed and built on my own for point-of-sale, inventory, sales records, unpaid-transaction tracking, and multi-branch management. I structured the data model (products, sales, branches) and implemented the business logic around real staff workflows, refining it over time.</p>
-      <a class="live" href="https://danstore.page.gd" target="_blank" rel="noopener">View live site →</a>
+      <a class="live" href="https://danstore.page.gd" target="_blank" rel="noopener">View live site </a>
     </div>
 
     <div class="project">
@@ -376,7 +208,7 @@
       </div>
       <div class="stack"><span>PHP</span><span>MySQL</span><span>E-commerce</span></div>
       <p>Contributed to a school final project at IES Villablanca covering database structure, interface design, PHP backend logic, and e-commerce functionality.</p>
-      <a class="live" href="https://ironwear.free.nf" target="_blank" rel="noopener">View live site →</a>
+      <a class="live" href="https://ironwear.free.nf" target="_blank" rel="noopener">View live site </a>
     </div>
 
     <div class="project">
@@ -470,7 +302,10 @@
     </div>
   </section>
 
+  </main>
+
   <footer id="contact">
+  <div class="wrap">
     <div class="row">
       <div>
         <h2>Let's talk.</h2>
@@ -482,13 +317,27 @@
         </div>
       </div>
       <div class="meta">
+        <div><a href="https://github.com/danielagulto" target="_blank" rel="noopener">github.com/danielagulto</a></div>
+        <div><a href="https://github.com/danielagulto/insureflow-portfolio" target="_blank" rel="noopener">InsureFlow source</a></div>
         <div><a href="https://letmeknow.xo.je" target="_blank" rel="noopener">letmeknow.xo.je</a></div>
         <div><a href="https://danstore.page.gd" target="_blank" rel="noopener">danstore.page.gd</a></div>
         <div><a href="https://ironwear.free.nf" target="_blank" rel="noopener">ironwear.free.nf</a></div>
       </div>
     </div>
+  </div>
   </footer>
-</div>
 
+<script>
+(function(){
+  var d=document.documentElement,calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(calm)return;
+  d.classList.add('js');
+  var els=document.querySelectorAll('.rv,.section-head,.project,.job,.skillgroup');
+  els.forEach(function(e){e.classList.add('rv')});
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});
+  els.forEach(function(e,i){io.observe(e)});
+  if(matchMedia('(pointer:fine)').matches){addEventListener('pointermove',function(e){d.style.setProperty('--mx',e.clientX+'px');d.style.setProperty('--my',e.clientY+'px')},{passive:true})}
+})();
+</script>
 </body>
 </html>
