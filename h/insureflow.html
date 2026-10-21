@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InsureFlow — Insurance Operations Portfolio | Daniel Agulto</title>
+<meta name="description" content="InsureFlow is a full-stack insurance operations app built with Java 21, Spring Boot, Spring Security, React and TypeScript. Architecture, features, security approach, testing and deployment status, with implemented and planned work clearly separated.">
+<link rel="canonical" href="https://danielagulto.github.io/insureflow.html">
+<meta name="author" content="Daniel L. Agulto Jr.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://danielagulto.github.io/insureflow.html">
+<meta property="og:site_name" content="Daniel Agulto — Portfolio">
+<meta property="og:title" content="InsureFlow — Insurance Operations Portfolio">
+<meta property="og:description" content="Full-stack insurance operations app: Spring Boot REST API, Spring Security, JPA, React and TypeScript. By Daniel Agulto.">
+<meta property="og:image" content="https://danielagulto.github.io/assets/img/og-image.png">
+<meta property="og:image:alt" content="InsureFlow operations dashboard">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14111A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314172B'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' text-anchor='middle' fill='%23F6F6F9'%3EDA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "InsureFlow — Insurance Operations Portfolio",
+  "codeRepository": "https://github.com/danielagulto/insureflow-portfolio",
+  "programmingLanguage": ["Java", "TypeScript"],
+  "author": { "@type": "Person", "name": "Daniel L. Agulto Jr.", "url": "https://danielagulto.github.io/" }
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap wide titleblock">
+    <div><strong>D. AGULTO JR.</strong> — full-stack developer</div>
+    <nav aria-label="Primary">
+      <a href="index.html">Portfolio</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#status">Status</a>
+      <a href="#security">Security</a>
+      <a href="#deployment">Deployment</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap wide">
+  <p class="crumb"><a href="index.html#work">Back to selected work</a></p>
+
+  <section class="hero" id="top" style="padding-top:32px">
+    <h1 style="max-width:22ch">InsureFlow — Insurance Operations Portfolio</h1>
+    <p class="lede">A full-stack insurance back-office workspace: a React and TypeScript single-page app backed by a Spring Boot REST API and a relational database. It covers customers, policies, application processing and renewal tracking behind a sign-in. It is an independent portfolio project that runs on synthetic data, and is not an official product of any insurer.</p>
+    <div class="cta-row">
+      <a class="btn" href="https://github.com/danielagulto/insureflow-portfolio" target="_blank" rel="noopener">View source on GitHub</a>
+      <a class="btn ghost" href="mailto:danielagultolim@gmail.com?subject=InsureFlow%20demo%20request">Request a demo</a>
+    </div>
+  </section>
+
+  <div class="factstrip">
+    <div class="fact"><span class="label">Frontend</span><span class="value">React 18 · TypeScript</span></div>
+    <div class="fact"><span class="label">Backend</span><span class="value">Java 21 · Spring Boot 3</span></div>
+    <div class="fact"><span class="label">Database</span><span class="value">H2 · MariaDB</span></div>
+    <div class="fact"><span class="label">Live demo</span><span class="value">On request</span></div>
+  </div>
+
+  <section id="screens">
+    <div class="section-head"><h2>The application</h2><span class="tag mono">screenshots</span></div>
+    <div class="shots">
+      <figure class="shot"><img src="assets/img/insureflow-overview.webp" width="1200" height="750" alt="Overview dashboard with customer, pending application, active policy and annual premium metrics, an application pipeline and upcoming renewals" loading="lazy"><figcaption>Overview: metrics derived from API data, application pipeline, renewals.</figcaption></figure>
+      <figure class="shot"><img src="assets/img/insureflow-policies.webp" width="1200" height="750" alt="Policy portfolio table with policy number, holder, product, premium, start and expiry dates, status and edit and delete actions" loading="lazy"><figcaption>Policies: create, edit, delete, expiry dates.</figcaption></figure>
+      <figure class="shot"><img src="assets/img/insureflow-applications.webp" width="1200" height="750" alt="Application pipeline table with a status selector for each submission" loading="lazy"><figcaption>Applications: status workflow.</figcaption></figure>
+      <figure class="shot"><img src="assets/img/insureflow-customers.webp" width="1200" height="750" alt="Customer directory table with name, email, phone, status and created date" loading="lazy"><figcaption>Customers: searchable directory with edit and delete.</figcaption></figure>
+    </div>
+    <p class="note" style="font-size:12.5px;color:var(--ink-soft)">Screenshots show the frontend build populated with the repository's synthetic demo records. No real customer data is used anywhere in the project.</p>
+  </section>
+
+  <section id="architecture" class="prose">
+    <div class="section-head"><h2>Architecture</h2><span class="tag mono">how it fits together</span></div>
+    <div class="diagram">
+      <svg viewBox="0 0 880 330" role="img" aria-labelledby="arch-t arch-d" xmlns="http://www.w3.org/2000/svg">
+        <title id="arch-t">InsureFlow architecture</title>
+        <desc id="arch-d">A React and TypeScript single-page app calls a Spring Boot REST API over HTTP with Basic authentication. The API uses Spring Data JPA to persist to H2 locally or MariaDB under Docker Compose. In Docker Compose, nginx serves the built app and proxies API requests to the backend.</desc>
+        <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#D9481F"/></marker></defs>
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="#14172B">
+          <rect x="10" y="40" width="210" height="130" fill="#fff" stroke="#14172B" stroke-width="1.5"/>
+          <text x="115" y="68" text-anchor="middle" font-weight="600">Browser</text>
+          <text x="115" y="92" text-anchor="middle" fill="#565B73" font-size="11">React 18 + TypeScript</text>
+          <text x="115" y="110" text-anchor="middle" fill="#565B73" font-size="11">Vite single-page app</text>
+          <text x="115" y="134" text-anchor="middle" fill="#565B73" font-size="11">sign-in, CRUD, dashboard</text>
+
+          <line x1="220" y1="105" x2="318" y2="105" stroke="#D9481F" stroke-width="1.5" marker-end="url(#ah)"/>
+          <text x="269" y="92" text-anchor="middle" fill="#D9481F" font-size="10.5">REST / JSON</text>
+          <text x="269" y="126" text-anchor="middle" fill="#D9481F" font-size="10.5">HTTP Basic</text>
+
+          <rect x="320" y="20" width="260" height="170" fill="#fff" stroke="#14172B" stroke-width="1.5"/>
+          <text x="450" y="46" text-anchor="middle" font-weight="600">Spring Boot 3 API (Java 21)</text>
+          <rect x="336" y="58" width="228" height="26" fill="#FBE3D8" stroke="#D9D2C6"/><text x="450" y="76" text-anchor="middle" font-size="11">Spring Security filter chain</text>
+          <rect x="336" y="90" width="228" height="26" fill="#FBE3D8" stroke="#D9D2C6"/><text x="450" y="108" text-anchor="middle" font-size="11">Controllers + Bean Validation</text>
+          <rect x="336" y="122" width="228" height="26" fill="#FBE3D8" stroke="#D9D2C6"/><text x="450" y="140" text-anchor="middle" font-size="11">Spring Data JPA repositories</text>
+          <text x="450" y="172" text-anchor="middle" fill="#565B73" font-size="10.5">customers · policies · applications</text>
+
+          <line x1="580" y1="105" x2="668" y2="105" stroke="#D9481F" stroke-width="1.5" marker-end="url(#ah)"/>
+          <text x="624" y="92" text-anchor="middle" fill="#D9481F" font-size="10.5">JDBC</text>
+
+          <rect x="670" y="30" width="200" height="66" fill="#fff" stroke="#14172B" stroke-width="1.5"/>
+          <text x="770" y="58" text-anchor="middle" font-weight="600">H2 file database</text>
+          <text x="770" y="78" text-anchor="middle" fill="#565B73" font-size="11">local default</text>
+          <rect x="670" y="112" width="200" height="66" fill="#fff" stroke="#14172B" stroke-width="1.5"/>
+          <text x="770" y="140" text-anchor="middle" font-weight="600">MariaDB 11</text>
+          <text x="770" y="160" text-anchor="middle" fill="#565B73" font-size="11">Docker Compose profile</text>
+
+          <rect x="10" y="226" width="860" height="84" fill="none" stroke="#D9481F" stroke-width="1.2" stroke-dasharray="6 4"/>
+          <text x="24" y="248" fill="#D9481F" font-size="11" font-weight="600">Docker Compose (optional self-hosted stack)</text>
+          <text x="24" y="272" fill="#565B73" font-size="11">nginx :8081 serves the built SPA and proxies /api to the backend (same origin, no CORS needed)</text>
+          <text x="24" y="292" fill="#565B73" font-size="11">backend :8080 (profile "mariadb") connects to MariaDB with credentials from environment variables</text>
+        </g>
+      </svg>
+    </div>
+
+    <h3>Frontend</h3>
+    <p>A Vite-built React 18 and TypeScript single-page app with page-level navigation (Overview, Customers, Applications, Policies, Renewals), modal forms, search, and loading, empty and error states. API calls go through one request helper that attaches the session credentials. The API base URL is configurable with <code>VITE_API_URL</code>.</p>
+
+    <h3>Backend</h3>
+    <p>A Spring Boot 3.5 application on Java 21, organised by feature package (<code>customer</code>, <code>policy</code>, <code>application</code>, <code>security</code>, <code>config</code>, <code>health</code>). Controllers use request records with Bean Validation, and return <code>404</code>, <code>409</code> and <code>400</code> with meaningful messages through <code>ResponseStatusException</code>.</p>
+
+    <h3>Database</h3>
+    <p>Three tables managed by Hibernate (<code>ddl-auto=update</code>). Customer emails and policy numbers have unique constraints. Applications and policies currently reference people by name rather than by foreign key to <code>customers</code>; linking them by ID is on the roadmap.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Table</th><th>Columns</th></tr></thead>
+      <tbody>
+        <tr><td class="nowrap"><code>customers</code></td><td>id (PK), full_name, email (unique), phone, status, created_at</td></tr>
+        <tr><td class="nowrap"><code>insurance_policy</code></td><td>id (PK), policy_number (unique), holder, product, status, annual_premium, start_date, expiry_date</td></tr>
+        <tr><td class="nowrap"><code>insurance_application</code></td><td>id (PK), applicant_name, product, status, premium, submitted_at</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3>API design</h3>
+    <p>Resource-oriented JSON endpoints under <code>/api</code>. Everything except the health check requires authentication.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Method</th><th>Endpoint</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>GET</td><td><code>/api/health</code></td><td>Public health check</td></tr>
+        <tr><td>GET</td><td><code>/api/auth/session</code></td><td>Validate credentials, return current user</td></tr>
+        <tr><td>GET · POST</td><td><code>/api/customers</code></td><td>List, create</td></tr>
+        <tr><td>GET · PUT · DELETE</td><td><code>/api/customers/{id}</code></td><td>Read, update, delete</td></tr>
+        <tr><td>GET · POST</td><td><code>/api/applications</code></td><td>List, submit</td></tr>
+        <tr><td>PATCH</td><td><code>/api/applications/{id}/status</code></td><td>SUBMITTED, IN_REVIEW, APPROVED, DECLINED</td></tr>
+        <tr><td>GET · POST</td><td><code>/api/policies</code></td><td>List, create</td></tr>
+        <tr><td>PUT · DELETE</td><td><code>/api/policies/{id}</code></td><td>Update, delete</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="status">
+    <div class="section-head"><h2>Implemented, in progress, planned</h2><span class="tag mono">honest status</span></div>
+    <div class="statusgrid">
+      <div class="statuscol">
+        <h3>Implemented</h3>
+        <ul>
+          <li>Customer CRUD, search, validation, duplicate-email check</li>
+          <li>Policy CRUD, duplicate policy-number check, status values</li>
+          <li>Application submission and status workflow</li>
+          <li>Dashboard metrics and 60-day renewal view</li>
+          <li>HTTP Basic authentication and sign-in screen</li>
+          <li>JPA persistence (H2, MariaDB profile)</li>
+          <li>5 backend tests and a GitHub Actions workflow</li>
+          <li>Dockerfiles and Docker Compose stack</li>
+        </ul>
+      </div>
+      <div class="statuscol">
+        <h3>In progress</h3>
+        <ul>
+          <li>Public hosted demo (not live yet)</li>
+          <li>Safer demo-credential handling for deployment</li>
+        </ul>
+      </div>
+      <div class="statuscol">
+        <h3>Planned</h3>
+        <ul>
+          <li>Document center (templates, PDF, attachments), shown as a placeholder in the UI</li>
+          <li>Multiple users and real role-based access control</li>
+          <li>Foreign keys between customers, policies and applications</li>
+          <li>Database migrations (Flyway or Liquibase)</li>
+          <li>Frontend tests, pagination, audit trail</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="security" class="prose">
+    <div class="section-head"><h2>Security approach</h2><span class="tag mono">and its limits</span></div>
+    <ul>
+      <li>All API endpoints except <code>/api/health</code> require authentication; a test asserts that an unauthenticated request returns <code>401</code>.</li>
+      <li>Credentials come from environment variables (<code>INSUREFLOW_SECURITY_USERNAME</code>, <code>INSUREFLOW_SECURITY_PASSWORD</code>) and are held as a BCrypt hash. No secrets are stored in frontend code.</li>
+      <li>CORS uses an explicit origin allowlist, the H2 console is denied, and framing is blocked.</li>
+      <li>Bean Validation and server-side checks reject invalid input; the database enforces unique emails and policy numbers.</li>
+    </ul>
+    <div class="callout"><strong>Honest limits.</strong> This is demonstration-grade security: one in-memory admin user, no per-user roles, no rate limiting or audit trail, and Basic credentials kept in browser <code>sessionStorage</code>. A real deployment needs HTTPS, an identity provider, role-based access control, and a security review. The repository's local-development default credentials must be overridden before the app is exposed publicly.</div>
+  </section>
+
+  <section id="testing" class="prose">
+    <div class="section-head"><h2>Testing and CI</h2><span class="tag mono">quality</span></div>
+    <ul>
+      <li>5 backend tests with JUnit 5, Spring Boot Test, MockMvc and Spring Security Test, covering customer create and list, the authentication requirement, policy create and list, application status updates, and the health payload.</li>
+      <li>A GitHub Actions workflow runs the backend tests and the frontend production build on every push and pull request.</li>
+      <li>Not yet covered: frontend unit or end-to-end tests, update and delete paths, and validation edge cases.</li>
+    </ul>
+  </section>
+
+  <section id="deployment" class="prose">
+    <div class="section-head"><h2>Deployment and demo access</h2><span class="tag mono">status</span></div>
+    <p><strong>Deployment status:</strong> not publicly hosted yet. The repository includes Dockerfiles and a Docker Compose stack (MariaDB, Spring Boot, nginx) for self-hosting, and I am preparing a hosted demo.</p>
+    <p><strong>Demo access:</strong> because the app has a single admin account, I do not publish shared credentials. Instead, <a href="mailto:danielagultolim@gmail.com?subject=InsureFlow%20demo%20request">request a demo by email</a> and I will walk you through it live or share a temporary environment that contains only synthetic data.</p>
+    <h3>Run it locally</h3>
+<pre><code># backend (Java 21, Maven 3.9+)
+cd backend
+export INSUREFLOW_SECURITY_USERNAME='choose-a-user'
+export INSUREFLOW_SECURITY_PASSWORD='choose-a-long-unique-password'
+mvn spring-boot:run
+
+# frontend (Node 20+), in a second terminal
+cd frontend
+npm install
+npm run dev</code></pre>
+    <p>Then open <code>http://localhost:5173</code> and sign in with the credentials you chose. Full setup, including the Docker Compose stack, is in the <a href="https://github.com/danielagulto/insureflow-portfolio#readme" target="_blank" rel="noopener">README</a>.</p>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap wide">
+    <div class="row">
+      <div>
+        <h2>Questions about InsureFlow?</h2>
+        <div class="meta">
+          <div><a href="mailto:danielagultolim@gmail.com">danielagultolim@gmail.com</a></div>
+          <div>Madrid, Spain</div>
+        </div>
+      </div>
+      <div class="meta">
+        <div><a href="index.html">Portfolio home</a></div>
+        <div><a href="https://github.com/danielagulto/insureflow-portfolio" target="_blank" rel="noopener">Source on GitHub</a></div>
+        <div><a href="https://github.com/danielagulto" target="_blank" rel="noopener">github.com/danielagulto</a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
