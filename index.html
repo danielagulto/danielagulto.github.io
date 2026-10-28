@@ -11,8 +11,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://danielagulto.github.io/">
 <meta property="og:site_name" content="Daniel Agulto — Portfolio">
-<meta property="og:image" content="https://danielagulto.github.io/assets/img/og-image.png">
-<meta property="og:image:alt" content="InsureFlow operations dashboard, a full-stack project by Daniel Agulto">
+<meta property="og:image" content="https://danielagulto.github.io/daniel.jpg">
+<meta property="og:image:alt" content="Portrait of Daniel Agulto, full-stack developer and aspiring data analyst">
 <meta name="twitter:card" content="summary_large_image">
 <meta property="og:title" content="Daniel Agulto — Full-Stack Developer &amp; Data Analytics">
 <meta property="og:description" content="Madrid-based full-stack developer and aspiring data analyst building backend APIs, web applications, and practical analytics dashboards. Explore live demos and source code.">
@@ -197,10 +197,15 @@ footer h2{margin-bottom:30px}
         <li>Spring Security with HTTP Basic, BCrypt-hashed credentials supplied by environment variables, and a sign-in/sign-out flow.</li>
         <li>5 backend tests (JUnit 5, MockMvc) and a GitHub Actions workflow for backend tests and the frontend build; Docker Compose setup with MariaDB.</li>
       </ul>
-      <figure class="shot">
-        <a href="insureflow.html"><img src="assets/img/insureflow-overview.webp" width="1200" height="750" alt="InsureFlow overview dashboard showing customer, application, policy and premium metrics, an application pipeline table and upcoming renewals" loading="lazy"></a>
-        <figcaption>Overview dashboard, shown with the repository's synthetic demo records.</figcaption>
-      </figure>
+      <div class="project-snapshot" aria-label="InsureFlow feature overview; this is a feature summary, not a product screenshot">
+        <div class="snapshot-heading"><span>INSUREFLOW / OPERATIONS</span><span>FEATURE MAP · DEMO DATA</span></div>
+        <div class="snapshot-grid">
+          <div><span>01 / RECORDS</span><strong>Customers</strong><small>Search, create, edit, delete</small></div>
+          <div><span>02 / POLICIES</span><strong>Policy portfolio</strong><small>Premiums, status, expiry dates</small></div>
+          <div><span>03 / WORKFLOW</span><strong>Applications</strong><small>Submitted → review → decision</small></div>
+          <div><span>04 / OVERVIEW</span><strong>Renewals &amp; KPIs</strong><small>Metrics from API data</small></div>
+        </div>
+      </div>
       <span class="status done">Core features implemented</span><span class="status">Public hosted demo: not live yet</span>
       <div class="actions">
         <a class="btn" href="insureflow.html">Project details</a>
