@@ -139,6 +139,46 @@ footer h2{font-size:clamp(46px,8vw,96px);margin-bottom:26px}
 @media (max-width:680px){.titleblock{align-items:flex-start;flex-direction:column;gap:9px;padding-block:12px}.titleblock nav{gap:2px}.titleblock nav a{padding:6px 9px}.hero{grid-template-columns:1fr;padding-top:60px!important}.hero h1{font-size:clamp(46px,12vw,72px)}.portrait{max-width:260px;justify-self:start}.factstrip{grid-template-columns:repeat(2,minmax(0,1fr))}.fact:nth-child(2){border-right:0}.fact:nth-child(-n+2){border-bottom:1px solid var(--line)}.skillgrid,.more{grid-template-columns:1fr}.case{grid-template-columns:1fr;gap:12px;padding:24px 20px}.num{padding-top:0}.job{grid-template-columns:1fr;gap:7px}.job ul,.job .where{grid-column:1}.job ul{margin-top:8px}.row{gap:24px}.snapshot-grid,.screen-summary-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
+
+/* Motion system: subtle, polished, and respectful of reduced-motion settings */
+@keyframes portfolio-fade-up{from{opacity:0;transform:translate3d(0,24px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes portfolio-fade-in{from{opacity:0}to{opacity:1}}
+@keyframes portfolio-glow{0%,100%{box-shadow:0 0 0 0 rgba(99,230,226,0)}50%{box-shadow:0 0 26px 1px rgba(99,230,226,.11)}}
+@keyframes portfolio-pulse{0%,100%{box-shadow:0 0 0 4px rgba(168,243,107,.10)}50%{box-shadow:0 0 0 8px rgba(168,243,107,0)}}
+@keyframes portfolio-scan{0%{transform:translateY(-120%);opacity:0}15%{opacity:.35}85%{opacity:.15}100%{transform:translateY(120%);opacity:0}}
+@media (prefers-reduced-motion:no-preference){
+  .eyebrow .dot{animation:portfolio-pulse 2.8s ease-in-out infinite}
+  .portrait-frame{animation:portfolio-glow 6s ease-in-out infinite}
+  .portrait-frame{overflow:hidden}
+  .portrait-frame::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,transparent 35%,rgba(99,230,226,.12) 50%,transparent 65%);transform:translateY(-120%);animation:portfolio-scan 7s ease-in-out 1.2s infinite}
+  .case,.proj,.skillgrid>div,.job,.fact{transition:transform .28s ease,border-color .28s ease,background-color .28s ease,box-shadow .28s ease}
+  .case:hover,.proj:hover{transform:translateY(-4px);box-shadow:0 16px 42px rgba(0,0,0,.18);border-color:rgba(99,230,226,.55)}
+  .skillgrid>div:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .fact:hover{background:rgba(99,230,226,.045)}
+  .tag-pill{transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease}
+  .tag-pill:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent);background:var(--glow)}
+  .btn,.live,.pill{transition:transform .22s ease,box-shadow .22s ease,color .22s ease,background .22s ease,border-color .22s ease}
+  .live:hover{transform:translateX(3px)}
+  .hero>div:first-child>*{animation:portfolio-fade-up .65s both}
+  .hero>div:first-child>.eyebrow{animation-delay:.04s}
+  .hero h1{animation-delay:.12s}
+  .hero .lede{animation-delay:.2s}
+  .hero .cta-row{animation-delay:.28s}
+  .portrait{animation:portfolio-fade-in .9s .18s both}
+  .factstrip{animation:portfolio-fade-up .65s .32s both}
+  .case,.proj,.skillgrid>div,.job{animation:portfolio-fade-up .55s both}
+  .case:nth-of-type(1){animation-delay:.04s}
+  .case:nth-of-type(2){animation-delay:.08s}
+  .case:nth-of-type(3){animation-delay:.12s}
+}
+.js-motion .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.js-motion .reveal.is-visible{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js-motion .reveal{opacity:1;transform:none}
+}
+
 </style>
 </head>
 <body>
@@ -369,5 +409,38 @@ footer h2{font-size:clamp(46px,8vw,96px);margin-bottom:26px}
     </div>
   </div>
 </footer>
+
+<script>
+(() => {
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  document.documentElement.classList.add('js-motion');
+  const selectors = [
+    '#skills .skillgrid > div',
+    '#work > .wrap > .case',
+    '#work > .wrap > .moreh',
+    '#work > .wrap > .more > .proj',
+    '#experience .job',
+    '#education .job',
+    'footer .row'
+  ];
+  const elements = document.querySelectorAll(selectors.join(','));
+  elements.forEach((element) => element.classList.add('reveal'));
+  if (!('IntersectionObserver' in window)) {
+    elements.forEach((element) => element.classList.add('is-visible'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries, currentObserver) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        currentObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+  elements.forEach((element) => observer.observe(element));
+})();
+</script>
+
 </body>
 </html>
