@@ -12,8 +12,8 @@
 <meta property="og:site_name" content="Daniel Agulto — Portfolio">
 <meta property="og:title" content="InsureFlow — Insurance Operations Portfolio">
 <meta property="og:description" content="Full-stack insurance operations app: Spring Boot REST API, Spring Security, JPA, React and TypeScript. By Daniel Agulto.">
-<meta property="og:image" content="https://danielagulto.github.io/assets/img/og-image.png">
-<meta property="og:image:alt" content="InsureFlow operations dashboard">
+<meta property="og:image" content="https://danielagulto.github.io/daniel.jpg">
+<meta property="og:image:alt" content="Portrait of Daniel Agulto, creator of the InsureFlow portfolio project">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#14111A">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314172B'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' text-anchor='middle' fill='%23F6F6F9'%3EDA%3C/text%3E%3C/svg%3E">
@@ -68,14 +68,14 @@
   </div>
 
   <section id="screens">
-    <div class="section-head"><h2>The application</h2><span class="tag mono">screenshots</span></div>
-    <div class="shots">
-      <figure class="shot"><img src="assets/img/insureflow-overview.webp" width="1200" height="750" alt="Overview dashboard with customer, pending application, active policy and annual premium metrics, an application pipeline and upcoming renewals" loading="lazy"><figcaption>Overview: metrics derived from API data, application pipeline, renewals.</figcaption></figure>
-      <figure class="shot"><img src="assets/img/insureflow-policies.webp" width="1200" height="750" alt="Policy portfolio table with policy number, holder, product, premium, start and expiry dates, status and edit and delete actions" loading="lazy"><figcaption>Policies: create, edit, delete, expiry dates.</figcaption></figure>
-      <figure class="shot"><img src="assets/img/insureflow-applications.webp" width="1200" height="750" alt="Application pipeline table with a status selector for each submission" loading="lazy"><figcaption>Applications: status workflow.</figcaption></figure>
-      <figure class="shot"><img src="assets/img/insureflow-customers.webp" width="1200" height="750" alt="Customer directory table with name, email, phone, status and created date" loading="lazy"><figcaption>Customers: searchable directory with edit and delete.</figcaption></figure>
+    <div class="section-head"><h2>The application</h2><span class="tag mono">feature map · demo data</span></div>
+    <div class="screen-summary-grid" aria-label="InsureFlow feature overview, not screenshots">
+      <article class="screen-summary"><span class="screen-index">01 / RECORDS</span><h3>Customer directory</h3><p>Search, create, edit, and delete customer records with input validation.</p></article>
+      <article class="screen-summary"><span class="screen-index">02 / POLICIES</span><h3>Policy portfolio</h3><p>Track policy numbers, holders, premiums, statuses, and expiry dates.</p></article>
+      <article class="screen-summary"><span class="screen-index">03 / WORKFLOW</span><h3>Application pipeline</h3><p>Move applications through submitted, in review, approved, and declined states.</p></article>
+      <article class="screen-summary"><span class="screen-index">04 / OVERVIEW</span><h3>Renewals &amp; KPIs</h3><p>Review summary metrics and upcoming renewals computed from API data.</p></article>
     </div>
-    <p class="note" style="font-size:12.5px;color:var(--ink-soft)">Screenshots show the frontend build populated with the repository's synthetic demo records. No real customer data is used anywhere in the project.</p>
+    <p class="note" style="font-size:12.5px;color:var(--ink-soft)">This feature map summarizes implemented workflows; it is not a screenshot. The project uses synthetic demo records only.</p>
   </section>
 
   <section id="architecture" class="prose">
